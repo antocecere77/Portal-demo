@@ -23,6 +23,11 @@ const routes: Routes = [{
         .then(m => m.ReportModule),
     },
     {
+      path: 'admin',
+      loadChildren: () => import('./admin/admin.module')
+        .then(m => m.AdminModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

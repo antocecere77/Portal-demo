@@ -38,5 +38,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/report/invoice'
       }
     ]
+  },
+  {
+    title: 'Admin',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Users',
+        link: '/pages/admin/users'
+      }
+    ]
   }
 ];
