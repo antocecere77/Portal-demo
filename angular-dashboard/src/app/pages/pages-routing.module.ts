@@ -13,6 +13,11 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path: 'check',
+      loadChildren: () => import('./check/check.module')
+        .then(m => m.CheckModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

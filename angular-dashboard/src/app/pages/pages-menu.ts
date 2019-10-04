@@ -13,38 +13,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Check',
-    icon: 'lock-outline',
+    icon: 'shuffle-2-outline',
     children: [
       {
         title: 'Catalogue',
-        link: '/check/catalogue'
+        link: '/pages/check/catalogue'
       },
       {
         title: 'Inventory',
-        link: '/check/inventory'
+        link: '/pages/check/inventory'
       }
     ]
-  },
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+  }
 ];
