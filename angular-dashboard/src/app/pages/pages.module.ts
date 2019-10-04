@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CheckModule } from './check/check.module';
+import { ReportModule } from './report/report.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { CheckModule } from './check/check.module';
     ThemeModule,
     NbMenuModule,
     DashboardModule,
-    CheckModule
+    CheckModule,
+    ReportModule
   ],
   declarations: [
     PagesComponent,

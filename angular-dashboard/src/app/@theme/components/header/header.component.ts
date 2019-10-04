@@ -69,8 +69,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(themeName => this.currentTheme = themeName);
 
       this.menuService.onItemClick()
-      .pipe(
-        filter(({ tag }) => tag !== 'my-context-menu'),
+      .pipe(        
+        // filter(({ tag }) => tag !== 'my-context-menu'),
         map(({ item: { title } }) => title),
       )
       .subscribe(title => this.onMenuClick(title));
@@ -101,6 +101,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onMenuClick(action: string) {
-    alert('Menu click ' + action);
+    // alert('Menu click ' + action);
+    console.log(action);
   }
 }

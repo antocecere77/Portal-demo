@@ -24,5 +24,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/check/inventory'
       }
     ]
+  },
+  {
+    title: 'Report',
+    icon: 'file-text-outline',
+    children: [
+      {
+        title: 'Orders',
+        link: '/pages/report/orders'
+      },
+      {
+        title: 'Invoice',
+        link: '/pages/report/invoice'
+      }
+    ]
   }
 ];
