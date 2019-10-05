@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { NbMenuModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent],
@@ -12,7 +13,8 @@ import { ThemeModule } from '../@theme/theme.module';
     CommonModule,
     AuthRoutingModule,
     NbMenuModule,
-    ThemeModule
+    ThemeModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { } 

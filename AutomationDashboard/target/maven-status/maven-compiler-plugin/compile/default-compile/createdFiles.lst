@@ -1,0 +1,4 @@
+com\automation\dashboard\SpringBootAdminServerApplication.class
+com\automation\dashboard\configs\NotifierConfiguration.class
+com\automation\dashboard\configs\HazelcastConfig.class
+com\automation\dashboard\configs\WebSecurityConfig.class
