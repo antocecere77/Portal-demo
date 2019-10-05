@@ -5,6 +5,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -19,12 +21,14 @@ import java.util.List;
 @CrossOrigin(origins="http://localhost:4200")
 public class DummyRestController {
 
+    Logger logger = LoggerFactory.getLogger(DummyRestController.class);
+
     @Autowired
     private DataSource postgresDataSource;
 
     @GetMapping(value = "/test")
-    public String getGreetings()
-    {
+    public String getGreetings() {
+        logger.debug("Saluti, sono il tuo primo webservice");
         return "Saluti, sono il tuo primo web services";
     }
 
@@ -40,7 +44,9 @@ public class DummyRestController {
 
     @GetMapping(value = "/longOperation")
     public String longOperation() throws InterruptedException {
+        logger.debug("Long operation start");
         Thread.sleep(30000);
+        logger.debug("Long operation finished");
         String message = String.format("Long operation terminata");
         return message;
     }
