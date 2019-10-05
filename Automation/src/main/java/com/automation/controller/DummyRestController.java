@@ -6,6 +6,8 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
@@ -55,6 +57,7 @@ public class DummyRestController {
         return articolo;
     }
 
+    @Cacheable("articoli")
     @GetMapping(value="/articoli")
     public List<Articolo> getArticoli() throws SQLException {
         BeanListHandler<Articolo> beanListHandler
@@ -67,5 +70,10 @@ public class DummyRestController {
         return articoliList;
     }
 
+    @CacheEvict(value="articoli", allEntries=true)
+    @GetMapping(value="/evictCache")
+    public void evictCacheArticoli() {
+
+    }
 
 }
