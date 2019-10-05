@@ -4,11 +4,13 @@ import com.automation.mapping.Articolo;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -41,8 +43,8 @@ public class DummyRestController {
         return message;
     }
 
-    @GetMapping(value = "/articoli")
-    public Articolo getArticoli() throws SQLException {
+    @GetMapping(value = "/articolo")
+    public Articolo getArticolo() throws SQLException {
 
         QueryRunner queryRunner = new QueryRunner(postgresDataSource);
         ResultSetHandler<Articolo> resultHandler = new BeanHandler<Articolo>(Articolo.class);
@@ -52,5 +54,18 @@ public class DummyRestController {
 
         return articolo;
     }
+
+    @GetMapping(value="/articoli")
+    public List<Articolo> getArticoli() throws SQLException {
+        BeanListHandler<Articolo> beanListHandler
+                = new BeanListHandler<>(Articolo.class);
+
+        QueryRunner runner = new QueryRunner();
+        List<Articolo> articoliList
+                = runner.query(postgresDataSource.getConnection(), "SELECT * FROM articoli", beanListHandler);
+
+        return articoliList;
+    }
+
 
 }
