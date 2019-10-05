@@ -15,8 +15,13 @@ const routes: Routes = [
     loadChildren: () => import('app/pages/pages.module')
       .then(m => m.PagesModule),
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  {
+    path: 'auth',
+    loadChildren: () => import('app/auth/auth.module')
+      .then(m => m.AuthModule),
+  },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth' },
 ];
 
 const config: ExtraOptions = {
