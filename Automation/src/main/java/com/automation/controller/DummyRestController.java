@@ -23,4 +23,11 @@ public class DummyRestController {
         return message;
     }
 
+    @GetMapping(value = "/longOperation")
+    public String longOperation() throws InterruptedException {
+        Thread.sleep(30000);
+        String message = String.format("Long operation terminata");
+        return message;
+    }
+
 }
